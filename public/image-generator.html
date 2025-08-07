@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WebWorkVision - Herramientas gratuitas de inteligencia artificial para crear, escribir, transcribir y más." />
+  <meta name="keywords" content="IA, inteligencia artificial, generador de imágenes, redactor de textos, voz a texto, resumen de texto, hashtags, herramientas IA" />
+  <title>WebWorkVision - image generator</title>
+  <link rel="stylesheet" crossorigin href="css/style.css">
+  <link rel="icon" href="../assets/favicon.jpeg" type="image/x-icon">
+
+
+  
+  <style>
+    .container {
+      margin-top: 15px;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #95d5b2;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #2d6a4f;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #40916c;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #000000;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #ai-image {
+      border-radius: 12px;
+      max-width: 100%;
+      height: auto;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>WebWorkVision AI</h1>
+    <nav>
+      <ul>
+        <li><a href="\index.html">Inicio</a></li>
+        <li><a href="#tools">Herramientas</a></li>
+        <li><a href="#about">Sobre Nosotros</a></li>
+        <li><a href="#faq">Preguntas Frecuentes</a></li>
+        <li><a href="#contact">Contáctanos</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+<h2>Generador de Imágenes IA (pollinations.ai)</h2>
+        <div style="text-align: center; margin-bottom: 20px;">
+        <ul>
+          <li><strong>genera imagenes sin limites</strong></li>
+          <li><strong>genera imagenes gratuitamente</strong></li>
+          <li><strong>genera imagenes sin registrarte</strong></li>
+        </ul>
+      </div>
+
+
+<label for="prompt"><strong>Escribe tu idea:</strong></label>
+<input type="text" id="prompt" placeholder="Ejemplo: Un dragón sobre una montaña" />
+
+<button id="generate-btn">Generar</button>
+
+<div id="result-container" style="display: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 12px; text-align: center;">
+  <p id="generating-text" style="display: none;">Generando... puede tardar varios segundos</p>
+  <img id="result-image" style="max-width: 50%; display: none; margin: 0 auto; text-align: center; border-radius: 10px;" />
+  <a id="download-btn" href="#" style="display: none; ">Descargar imagen</a>
+</div>
+    </section>
+    <section class="hero">
+      <h2>Explora el poder de la inteligencia artificial</h2>
+      <p>utiliza nuestros servicios de manera gratuita, al instante, ilimitada y sin registro.</p>
+    </section>
+    <section class="tools-overview"  id="tools">
+      <div class="tool-card"><a href="image-generator.html">🖼️ Generador de Imágenes</a></div>
+      <div class="tool-card"><a href="text-writer.html">✍️ Redactor de Textos</a></div>
+      <div class="tool-card"><a href="grammar-correction.html">🎙️ corrector gramatical</a></div>
+      <div class="tool-card"><a href="text-summarizer.html">🧠 Resumen de Texto</a></div>
+      <div class="tool-card"><a href="hashtag-generator.html">#️⃣ Generador de Hashtags</a></div>
+      <div class="tool-card"><a href="text-paraphrasing.html">🔄 Parafraseador de Texto</a></div>
+    </section>
+    <section class="tool-info" >
+      <h2>Información sobre las herramientas</h2>
+      <div class="tool-descriptions">
+        <div class="tool-description">
+          <h3>Generador de Imágenes</h3>
+          <p>Esta herramienta utiliza IA para crear imágenes a partir de descripciones textuales.</p>
+        </div>
+        <div class="tool-description">
+          <h3>Redactor de Textos</h3>
+          <p>Genera textos de alta calidad en base a indicaciones proporcionadas por el usuario.</p>
+        </div>
+        <div class="tool-description">
+          <h3>Voz a Texto</h3>
+          <p>Convierte audio hablado en texto escrito de manera precisa y rápida.</p>
+        </div>
+        <div class="tool-description">
+          <h3>Resumen de Texto</h3>
+          <p>Resume textos largos en versiones más cortas y concisas.</p>
+        </div>
+        <div class="tool-description">
+          <h3>Generador de Hashtags</h3>
+          <p>Genera hashtags relevantes para mejorar la visibilidad en redes sociales.</p>
+        </div>
+        <div class="tool-description">
+          <h3>Parafraseador de Texto</h3>
+          <p>Reescribe textos para mejorar la claridad y fluidez, manteniendo el significado original.</p>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <strong><h2>Sobre Nosotros</h2></strong>
+      <p>En WebWorkVision AI, nos apasiona llevar la inteligencia artificial al alcance de todos. Ofrecemos servicios avanzados como generación de imágenes, resumen de textos, parafraseo y etc... diseñados para facilitar la vida tanto a profesionales como a usuarios individuales. Nuestro enfoque es promover la innovación y la creatividad mediante herramientas accesibles y gratuitas, impulsando el desarrollo y la adopción de la inteligencia artificial en todo el mundo. Priorizamos la calidad y la sencillez en cada uno de nuestros servicios, trabajando para que más personas puedan aprovechar el poder de la IA sin barreras(AI perteneciente a pollinations.ai).</p>
+    </section>
+    <section class="faq" id="faq">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-item">
+        <h3>¿Cómo funcionan las herramientas?</h3>
+        <p>Nuestras herramientas utilizan algoritmos avanzados de IA para procesar tus solicitudes y generar resultados en tiempo real. (AI horde)</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Es gratis usar las herramientas?</h3>
+        <p>Sí, todas nuestras herramientas son completamente gratuitas y accesibles para todos los usuarios.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Cómo puedo contactar al soporte?</h3>
+        <p>Podés contactarnos a través del formulario en la sección "Contáctanos" o enviando un correo a nuestro email de soporte.</p>
+      </div>
+    </section>
+    <section class="contact-form" id="contact">
+      <h3>CONTACTANOS</h3>
+      <form action="https://formsubmit.co/webworkvision@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="message" placeholder="Escribí tu mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 WebWorkVision</p>
+    <a href="../terms.html"><strong>Términos y Condiciones</strong></a> <p>&</p>
+    <a href="../privacy.html"><strong>Política de Privacidad</strong></a>
+  </footer>
+    <script type="module" src="js/image-generator.js"></script>
+</body>
+</html>
