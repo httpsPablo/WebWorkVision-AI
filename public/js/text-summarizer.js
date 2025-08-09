@@ -1,3 +1,37 @@
+async function detectLanguage(text) {
+  const prompt = `Detecta exclusivamente el idioma del siguiente texto y responde solo con el nombre del idioma en inglés, sin más texto:
+
+Texto:
+${text}`;
+
+  const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`);
+  const lang = await response.text();
+  return lang.trim();
+}
+
+async function summarizeText(text) {
+  const prompt = `Resume el siguiente texto de forma breve y concisa, sin agregar explicaciones ni saludos.
+
+Texto:
+${text}`;
+
+  const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`);
+  const summary = await response.text();
+  return summary.trim();
+}
+
+async function translateText(text, targetLanguage) {
+  const prompt = `Traduce el siguiente texto al idioma ${targetLanguage} sin agregar nada más:
+
+Texto:
+${text}`;
+
+  const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`);
+  const translation = await response.text();
+  return translation.trim();
+}
+
+// Ejemplo de uso completo:
 document.getElementById('generate-btn').addEventListener('click', async () => {
   const userInput = document.getElementById('prompt').value.trim();
   const resultEl = document.getElementById('result');
@@ -7,18 +41,22 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     return;
   }
 
-  const prompt = `Resume el siguiente texto de forma natural, solo resume, clara y sin introducciones ni despedidas: ${userInput}`;
-
-  resultEl.textContent = 'Generando texto...';
+  resultEl.textContent = 'Detectando idioma...';
 
   try {
-    const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`);
-    const rawText = await response.text();
+    const detectedLanguage = await detectLanguage(userInput);
+    resultEl.textContent = `Idioma detectado: ${detectedLanguage}. Resumiendo...`;
 
-    const cleanText = rawText.replace(/^(claro|aquí tienes|vale|por supuesto)[^\n]*\n?/i, '').trim();
-    resultEl.textContent = cleanText || 'No se pudo generar texto.';
+    const summary = await summarizeText(userInput);
+
+    const translate = await translateText
+
+    // Si quieres traducir el resumen al idioma detectado (por si cambia el idioma), descomenta:
+    const finalText = await translateText(summary, detectedLanguage);
+    resultEl.textContent = finalText;
+
   } catch (error) {
-    console.error('Error al llamar a la API:', error);
+    console.error('Error:', error);
     resultEl.textContent = 'Error al generar el texto.';
   }
 });
@@ -35,3 +73,4 @@ document.getElementById('copy-btn').addEventListener('click', () => {
     .then(() => alert('Texto copiado al portapapeles.'))
     .catch(() => alert('No se pudo copiar el texto.'));
 });
+

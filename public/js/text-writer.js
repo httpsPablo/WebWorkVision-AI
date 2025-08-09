@@ -7,7 +7,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     return;
   }
 
-  const prompt = `Redacta el siguiente contenido de forma natural, clara y sin introducciones ni despedidas: ${userInput}`;
+  const prompt = `Redacta el siguiente contenido de forma natural, sin introducciones, no saludes, sin despedidas, solo respinde lo pedido: ${userInput}`;
 
   resultEl.textContent = 'Generando texto...';
 

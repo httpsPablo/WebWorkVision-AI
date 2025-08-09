@@ -7,7 +7,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     return;
   }
 
-  const prompt = `corrige gramaticalmente y ortograficamente el siguiente contenido de forma natural, clara y sin introducciones ni despedidas: ${userInput}`;
+  const prompt = `corrige gramaticalmente y ortograficamente el siguiente contenido de forma natural, clara y sin introducciones ni despedidas (responde en el idioma recibido en el siguiente texto): ${userInput}`;
 
   resultEl.textContent = 'Generando texto...';
 
