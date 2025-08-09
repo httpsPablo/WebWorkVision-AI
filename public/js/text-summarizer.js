@@ -10,7 +10,7 @@ ${text}`;
 }
 
 async function summarizeText(text) {
-  const prompt = `Resume el siguiente texto de forma breve y concisa, sin agregar explicaciones ni saludos.
+  const prompt = `Resume el siguiente texto de forma breve y concisa, sin agregar explicaciones ni saludos, ni despedidas, ni opiniones.
 
 Texto:
 ${text}`;
@@ -37,15 +37,15 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
   const resultEl = document.getElementById('result');
 
   if (!userInput) {
-    resultEl.textContent = 'Por favor, escribí algo para generar.';
+    resultEl.textContent = 'Please write something to generate.';
     return;
   }
 
-  resultEl.textContent = 'Detectando idioma...';
+  resultEl.textContent = 'Detecting language...';
 
   try {
     const detectedLanguage = await detectLanguage(userInput);
-    resultEl.textContent = `Idioma detectado: ${detectedLanguage}. Resumiendo...`;
+    resultEl.textContent = `Detected language: ${detectedLanguage}. Summarizing...`;
 
     const summary = await summarizeText(userInput);
 
@@ -57,7 +57,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
 
   } catch (error) {
     console.error('Error:', error);
-    resultEl.textContent = 'Error al generar el texto.';
+    resultEl.textContent = 'Error generating text.';
   }
 });
 
@@ -65,12 +65,12 @@ document.getElementById('copy-btn').addEventListener('click', () => {
   const text = document.getElementById('result').textContent;
 
   if (!text) {
-    alert('No hay texto para copiar.');
+    alert('No text to copy.');
     return;
   }
 
   navigator.clipboard.writeText(text)
-    .then(() => alert('Texto copiado al portapapeles.'))
-    .catch(() => alert('No se pudo copiar el texto.'));
+    .then(() => alert('Text copied to clipboard.'))
+    .catch(() => alert('Could not copy text.'));
 });
 
